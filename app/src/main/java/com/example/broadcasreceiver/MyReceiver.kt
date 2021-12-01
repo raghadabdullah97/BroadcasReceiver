@@ -10,15 +10,10 @@ class MyReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
-      val extras = intent.extras
-        extras?.let {
+     val myIntent = intent.getStringExtra(TelephonyManager.EXTRA_STATE)
 
-            val state = it.getString(TelephonyManager.EXTRA_STATE)
-
-            Toast.makeText(context,state , Toast.LENGTH_SHORT).show()
-
+        Toast.makeText(context, myIntent, Toast.LENGTH_SHORT).show()
 
         }
 
     }
-}
